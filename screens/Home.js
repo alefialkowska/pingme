@@ -3,7 +3,7 @@ import { StyleSheet,View,Text,useWindowDimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Button, useTheme } from 'react-native-paper';
 
-const Login = () => {
+const Home = () => {
   const {navigate} = useNavigation();
   const { height, width } = useWindowDimensions();
   const theme = useTheme();
@@ -16,17 +16,13 @@ const Login = () => {
       alignItems:'center',
     }
   });
-
   return (
     <View style={styles.screen}>
       <Text>
-        Login
+      Home
       </Text>
-      <Button onPress={()=>{navigate('HomeTab')}}>
-        do HomeTab
-      </Button>
-    </View>
+      </View>
   )
 }
 
-export default Login
+export default Home
