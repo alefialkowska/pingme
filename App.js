@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import { MD3LightTheme as DefaultTheme, MD3Theme, Provider as PaperProvider } from 'react-native-paper';
-import Navigation from './Navigation/Navigation';
+import Navigation from './navigation/Navigation';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import AuthContextProvider, { AuthContext } from './store/auth-context';
+import AuthContextProvider, { AuthContext } from './src/store';
 
 
 const paperTheme = {
@@ -26,7 +26,7 @@ export default function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        authCtx.authenticate(true);
+        authCtx.isAuthenticated(true);
       }
    }, [auth]);
   })

@@ -6,7 +6,10 @@ import { Button, useTheme, TextInput } from 'react-native-paper';
 import { handleSignUp } from '../firebase/handleSignUp'
 import { handleLogin } from '../firebase/handleSignUp'
 
-import Navigation from '../Navigation/Navigation'
+import Navigation from '../navigation/Navigation'
+
+const welcomeText = 'Fajnie, że jesteś!'
+const welcomeText2 = 'się aby znajdować przeciwników do gry oraz dodawać i śledzić wyniki.'
 
 const Login = () => {
   const {navigate} = useNavigation();
@@ -14,7 +17,7 @@ const Login = () => {
   const theme = useTheme();
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
-  const [isLogged, setIsLogged] = useState(true);
+  const [isSigned, setIsSigned] = useState(true);
 
   
   function updateInputValueHandler(inputType, enteredValue) {
@@ -29,7 +32,7 @@ const Login = () => {
   }
 
   function submitHandler() {
-       if (!isLogged) {
+       if (!isSigned) {
           handleSignUp(enteredEmail, enteredPassword, Navigation.navigate)
        } else {
         handleSignUp(enteredEmail, enteredPassword, Navigation.navigate)
@@ -41,25 +44,40 @@ const Login = () => {
     screen: {
       flex: 1,
       alignItems:'center',
+      width: 333
     },
     input: {
       borderColor: theme.colors.gray,
-      color: theme.colors.gray
+      color: theme.colors.gray,
+      marginBottom: 48
     },
     text: {
       color: theme.colors.gray
     },
     textButton: {
-      textDecoration: 'underline',
       fontSize: 10
     },
     button: {
       borderRadius: 5
+    },
+    welcomeSetion: {
+      color: theme.colors.gray,
+      alignSelf: 'center',
+      width: 333
+    },
+    welcomeSetionWrapper: {
+      paddingTop: 24,
+      paddingBottom: 48
     }
+
   });
 
   return (
     <View style={styles.screen}>
+      <View style={styles.welcomeSetionWrapper}>
+        <Text style={styles.welcomeSetion}>{welcomeText}</Text>
+        <Text style={styles.welcomeSetion}>{`${isSigned ? 'Zaloguj się' : 'Zarejestruj się'}${welcomeText2}`}</Text>
+      </View>
       <View>
         <Text style={styles.text}>E-mail</Text>
         <TextInput
@@ -83,7 +101,7 @@ const Login = () => {
         </View>
         <View>
           <Button buttonColor={theme.colors.primary} textColor={theme.colors.background} onPress={submitHandler} style={styles.button}>
-            {isLogged ? 'ZALOGUJ' : 'ZAREJESTRUJ'}
+            {isSigned ? 'ZALOGUJ' : 'ZAREJESTRUJ'}
           </Button>
         </View>
       </View>
