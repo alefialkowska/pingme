@@ -12,7 +12,6 @@ const Home = () => {
   
   const styles = StyleSheet.create({
     screen: {
-      backgroundColor: 'red',
       flex: 1,
       alignItems:'center',
     },
