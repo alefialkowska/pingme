@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme, useNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
 import Login from '../screens/Login';
 
 const Stack = createNativeStackNavigator();
@@ -17,10 +16,18 @@ export default function Navigation() {
   );
 }
 
+function LoginTab() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Login" component={Login} />
+    </Tab.Navigator>
+  );
+}
+
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+      <Stack.Screen name="Login" component={LoginTab} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }
