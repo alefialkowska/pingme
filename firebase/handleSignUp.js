@@ -2,6 +2,7 @@ import {
    createUserWithEmailAndPassword
   } from 'firebase/auth';
   import { auth } from './config';
+  
   export const handleSignUp = (
     email,
     password,

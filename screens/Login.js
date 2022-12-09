@@ -4,9 +4,7 @@ import { StyleSheet,View,Text,useWindowDimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Button, useTheme, TextInput } from 'react-native-paper';
 import { handleSignUp } from '../firebase/handleSignUp'
-import { handleLogin } from '../firebase/handleSignUp'
-
-import Navigation from '../navigation/Navigation'
+import { handleLogin } from '../firebase/handleLogIn'
 
 const welcomeText = 'Fajnie, że jesteś!'
 const welcomeText2 = 'się aby znajdować przeciwników do gry oraz dodawać i śledzić wyniki.'
@@ -17,7 +15,7 @@ const Login = () => {
   const theme = useTheme();
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
-  const [isSigned, setIsSigned] = useState(true);
+  const [isSigned, setIsSigned] = useState(false);
 
   
   function updateInputValueHandler(inputType, enteredValue) {
@@ -33,9 +31,9 @@ const Login = () => {
 
   function submitHandler() {
        if (!isSigned) {
-          handleSignUp(enteredEmail, enteredPassword, Navigation.navigate)
+          handleSignUp(enteredEmail, enteredPassword, navigate)
        } else {
-        handleSignUp(enteredEmail, enteredPassword, Navigation.navigate)
+        handleLogin(enteredEmail, enteredPassword, navigate)
     }
 
   }
