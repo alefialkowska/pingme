@@ -5,7 +5,7 @@ const Notification = () => {
   return (
     <View>
       <Text>
-      Notification
+      Notification1
       </Text>
       </View>
   )
