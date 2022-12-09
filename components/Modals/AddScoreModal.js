@@ -85,10 +85,6 @@ const AddScoreModal = () => {
         <View style={{ width: 25, height: 25 }} />
       </View>
       <Divider bold style={[styles.divider, { marginBottom: 20 }]} />
-      <Text variant="titleMedium">
-        Już wiesz z kim chcesz zagrać? Wyszukaj przeciwnika i wyślij mu
-        zaproszenie.
-      </Text>
       <TextInput
         placeholder={"Tu wpisz imię i nazwisko przeciwnika"}
         textColor="#D9D9D9"
