@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet,View,Text,useWindowDimensions } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { Button, useTheme } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Home = () => {
   const {navigate} = useNavigation();
@@ -11,17 +12,21 @@ const Home = () => {
   
   const styles = StyleSheet.create({
     screen: {
-      backgroundColor: 'red',
       flex: 1,
       alignItems:'center',
+    },
+    text: {
+      color: 'red',
+      margin: 'auto',
+      fontSize: 19
     }
   });
   return (
-    <View style={styles.screen}>
-      <Text>
-      Home
+    <SafeAreaView style={styles.screen}>
+      <Text style={styles.text}>
+      Home dmaksmckmaskdmk awk dmkaw
       </Text>
-      </View>
+      </SafeAreaView>
   )
 }
 
