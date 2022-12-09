@@ -1,5 +1,5 @@
 import {
-    signInWithEmailAndPassword, createUserWithEmailAndPassword
+   createUserWithEmailAndPassword
   } from 'firebase/auth';
   import { auth } from './config';
   export const handleSignUp = (
@@ -8,19 +8,13 @@ import {
     navigate,
   ) => {
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate('Home');
-      })
-      .catch((error) => {
-        switch (error.code) {
-          case 'auth/user-not-found':
-            console.log('Nie ma takiego użytkownika');
-            break;
-          case 'auth/wrong-password':
-            console.log('Błędne hasło');
-            break;
-          default:
-            console.log('Ups... coś poszło nie tak');
-        }
-      });
+    .then((userCredential) => {
+      navigate('Home');
+      const user = userCredential.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+    });
   };

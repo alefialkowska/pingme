@@ -14,7 +14,7 @@ const Login = () => {
   const theme = useTheme();
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
 
   
   function updateInputValueHandler(inputType, enteredValue) {
@@ -39,32 +39,51 @@ const Login = () => {
 
   const styles = StyleSheet.create({
     screen: {
-      backgroundColor: 'red',
       flex: 1,
       alignItems:'center',
+    },
+    input: {
+      borderColor: theme.colors.gray,
+      color: theme.colors.gray
+    },
+    text: {
+      color: theme.colors.gray
+    },
+    textButton: {
+      textDecoration: 'underline',
+      fontSize: 10
+    },
+    button: {
+      borderRadius: 5
     }
   });
 
   return (
     <View style={styles.screen}>
       <View>
-        <Text>E-mail</Text>
+        <Text style={styles.text}>E-mail</Text>
         <TextInput
+        style={styles.input}
+         mode="outlined"
           onChangeText={updateInputValueHandler.bind(this, 'email')}
           value={enteredEmail}
           placeholder = "Tu wpisz e-mail firmowy"
         />
-        <Text>Hasło</Text>
+        <Text style={styles.text}>Hasło</Text>
         <TextInput
+          mode="outlined"
+          style={styles.input}
           onChangeText={updateInputValueHandler.bind(this, 'password')}
           secure
           value={enteredPassword}
           placeholder = "Minimum 8 znaków"
         />
-        <Button mode="text">Nie pamiętam hasła</Button>
+        <View style={styles.textButton}>
+        <Button textColor={theme.colors.gray} style={styles.textButton} mode="text">Nie pamiętam hasła</Button>
+        </View>
         <View>
-          <Button onPress={submitHandler}>
-            {isLogged ? 'Zaloguj się' : 'Zarejestruj się'}
+          <Button buttonColor={theme.colors.primary} textColor={theme.colors.background} onPress={submitHandler} style={styles.button}>
+            {isLogged ? 'ZALOGUJ' : 'ZAREJESTRUJ'}
           </Button>
         </View>
       </View>
