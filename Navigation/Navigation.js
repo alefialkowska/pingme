@@ -31,12 +31,12 @@ export default function Navigation() {
 
 function HomeTab() {
   return (
-    <Tab.Navigator 
-    screenOptions={{
-      tabBarStyle:{ backgroundColor: '#323232' },
-      tabBarActiveTintColor:'#FFFFFF',
-      tabBarInactiveTintColor:'#AAAAAA'
-    }}
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: { backgroundColor: "#323232" },
+        tabBarActiveTintColor: "#FFFFFF",
+        tabBarInactiveTintColor: "#AAAAAA",
+      }}
     >
       <Tab.Screen
         name="Home"
@@ -90,16 +90,16 @@ function HomeTab() {
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen
-        name="HomeTab"
-        component={HomeTab}
-        options={{ headerShown: false }}
-      />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Home" component={Home} />
       <Stack.Screen
         name="Login"
         component={Login}
         options={{ headerShown: false }}
       />
+      {/* <Stack.Screen name="HomeTab" component={HomeTab} options={{ headerShown: false }} /> */}
+      <Stack.Screen name="Ranking" component={Ranking} />
+      <Stack.Screen name="Notification" component={Notification} />
     </Stack.Navigator>
   );
 }
