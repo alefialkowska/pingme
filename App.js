@@ -5,7 +5,7 @@ import {
   MD3Theme,
   Provider as PaperProvider,
 } from "react-native-paper";
-import Navigation from "./Navigation/Navigation";
+import Navigation from "./navigation/Navigation";
 
 const paperTheme = {
   ...DefaultTheme,
@@ -16,6 +16,7 @@ const paperTheme = {
     error: "#DE0000",
     white: "#fff",
     gray: "#AAAAAA",
+    darkGray: "#323232",
     backgroundGray: "#D9D9D9",
     available: "#6AB880",
     unavailable: "#ED7566",
